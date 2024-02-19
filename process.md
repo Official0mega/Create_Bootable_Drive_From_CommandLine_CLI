@@ -10,6 +10,19 @@ Look for your USB drive in the list. It will typically have a name like /dev/sdX
 #### Download the ISO:
 * Download the ISO file of the operating system you want to create a bootable USB drive for. Make sure you have it saved in a location that you can easily access from the command line.
 
-## Step 2 
+## Step 3
 #### Write the ISO to the USB Drive:
-Use the dd command to write the ISO file to the USB drive. Replace /path/to/your/iso/file.iso with the path to your ISO file, and /dev/sdX with the device name of your USB drive. This command will overwrite all data on the USB drive, so make sure you've selected the correct device.
+* Use the dd command to write the ISO file to the USB drive. Replace /path/to/your/iso/file.iso with the path to your ISO file, and /dev/sdX with the device name of your USB drive. This command will overwrite all data on the USB drive, so make sure you've selected the correct device.
+
+## Step 4
+*
+```bash
+sudo dd if=~/Downloads/kali-linux.iso of=/dev/sdc bs=4M status=progress && sync
+```
+
+## Step 5
+* Eject the USB Drive:
+After dd finishes writing the ISO to the USB drive, eject the USB drive safely using the eject command:
+```bash
+sudo eject /dev/sdc
+```
